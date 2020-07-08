@@ -13,14 +13,20 @@
     "yup": "^0.29.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.10.4",
+    "babel-jest": "^26.1.0",
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
+    "jest": "^26.1.0",
     "nodemon": "^2.0.4",
     "sequelize-cli": "^6.2.0",
     "sucrase": "^3.15.0"
   },
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "pretest": "NODE_ENV=test sequelize db:create sequelize db:migrate",
+    "test": "jest",
+    "posttest": "sequelize db:migrate:undo:all"
   }
 }
