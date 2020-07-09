@@ -13,7 +13,7 @@ export default function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Link className="white-link" to="/">Todos cursos</Link>
-            <Link className="white-link" to="/cursos">Adicionar curso</Link>
+            <Link className="white-link" to="/new">Adicionar curso</Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
