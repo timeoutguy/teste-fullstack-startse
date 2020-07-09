@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Row } from 'react-bootstrap';
+import { toast, ToastContainer } from 'react-toastify';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import api from '../../services/api';
 
+
 export default function NewCourse() {
 
-  let initialState = {
+  const initialState = {
     title: '',
     subtitle: '',
     description: '',
@@ -20,7 +22,7 @@ export default function NewCourse() {
   const [startedAt, setStartedAt] = useState(initialState.startedAt);
   const [isActive, setIsActive] = useState(initialState.isActive);
 
-  let clearFields = () => {
+  const clearFields = () => {
     setTitle(initialState.title);
     setSubtitle(initialState.subtitle);
     setDescription(initialState.description);
@@ -28,7 +30,7 @@ export default function NewCourse() {
     setIsActive(initialState.isActive);
   }
 
-  let handleSubmit = async () => {
+  const handleSubmit = async () => {
     let body = {
       title,
       subtitle,
@@ -37,14 +39,24 @@ export default function NewCourse() {
       isActive,
     }
 
-    await api.post('/courses', body);
-
-    window.location.href = "/"; 
-      
+    try {
+      await api.post('/courses', body);
+      window.location.href = "/"; 
+    } catch (error) {
+      toast.error('Um erro ocorreu! 😦', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   }
 
   return (
-    <Container>
+    <Container className="mt-4">
       <h1> Adicionar novo curso </h1>
       <Form>
         <Form.Group >
@@ -69,19 +81,16 @@ export default function NewCourse() {
             <option value={false}>Não ativo</option>
           </Form.Control>
         </Form.Group>
-     
-
         <Form.Group>
           <Form.Label>Começou em</Form.Label>
           <Calendar selected={startedAt} onChange={date => setStartedAt(date)} />
         </Form.Group>
       </Form>
-      
       <Row className="mx-auto">
         <Button onClick={handleSubmit}> Enviar </Button>
-        <Button variant='secondary' onClick={clearFields} > Limpar campos  </Button>
+        <Button variant='secondary' onClick={clearFields}> Limpar campos  </Button>
       </Row>
-
+      <ToastContainer />
     </Container>
   )
 }
