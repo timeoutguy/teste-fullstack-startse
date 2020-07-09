@@ -7,7 +7,7 @@ export default function Header() {
     <>
       <Navbar bg="primary" className="navbar-dark" expand="lg">
         <Navbar.Brand>
-          <Link className="white-link" style={{fontSize: 28}} to='/'> Startse </Link>
+          <Link className="white-link" style={{fontSize: 22}} to='/'> Startse </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

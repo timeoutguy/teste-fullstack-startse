@@ -88,7 +88,7 @@ export default function NewCourse() {
       </Form>
       <Row className="mx-auto">
         <Button onClick={handleSubmit}> Enviar </Button>
-        <Button variant='secondary' onClick={clearFields}> Limpar campos  </Button>
+        <Button variant='secondary' onClick={clearFields} style={{marginLeft: 5}}> Limpar campos  </Button>
       </Row>
       <ToastContainer />
     </Container>
