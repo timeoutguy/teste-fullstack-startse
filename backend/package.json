@@ -27,6 +27,7 @@
   },
   "scripts": {
     "dev": "nodemon src/index.js",
-    "prod": "forever build/index.js"
+    "preprod": "sucrase ./src -d ./build --transforms imports",
+    "prod": " forever build/index.js"
   }
 }
