@@ -12,11 +12,13 @@ Repositorio com o teste para a vaga de desenvolvedor full-stack na empresa [Star
 
 4 - Crie o banco de dados manualmente ou execute `yarn sequelize db:create` ou `npx sequelize-cli db:create`
 
-5 - Para executar as migrations e seeds execute `yarn sequelize db:migrate`/`npx sequelize-cli db:migrate` e `yarn sequelize db:seed:all`/`yarn sequelize db:seed:all`
+5 - Para executar as migrations execute `yarn sequelize db:migrate`/`npx sequelize-cli db:migrate` 
 
-6 - Execute o script `prod` com `yarn prod` `npm run prod`
+6 - Para executar as seeders execute `yarn sequelize db:seed:all`/`yarn sequelize db:seed:all`
 
-7 - Voilà, a API já está funcionando
+7 - Execute o script `prod` com `yarn prod` `npm run prod`
+
+8 - Voilà, a API já está funcionando
 
 # Como utilizar o frontend
 
