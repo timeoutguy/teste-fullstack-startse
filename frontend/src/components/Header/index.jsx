@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
+import { FaGithub } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 export default function Header() {
@@ -14,6 +15,9 @@ export default function Header() {
           <Nav className="mr-auto">
             <Link className="white-link" to="/">Todos cursos</Link>
             <Link className="white-link" to="/new">Adicionar curso</Link>
+          </Nav>
+          <Nav className="ml-auto">
+            <a href="github.com/timeoutguy"> <FaGithub color="#fff" size={36  } /> </a>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
