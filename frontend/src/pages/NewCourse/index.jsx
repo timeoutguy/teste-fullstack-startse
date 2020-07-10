@@ -86,7 +86,7 @@ export default function NewCourse() {
           <Calendar selected={startedAt} onChange={date => setStartedAt(date)} />
         </Form.Group>
       </Form>
-      <Row className="mx-auto">
+      <Row className="mx-auto mb-4">
         <Button onClick={handleSubmit}> Enviar </Button>
         <Button variant='secondary' onClick={clearFields} style={{marginLeft: 5}}> Limpar campos  </Button>
       </Row>
