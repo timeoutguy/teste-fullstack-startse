@@ -22,8 +22,27 @@ export default function CourseInfo(props) {
   const [isActive, setIsActive] = useState(initialState.isActive);
   const [show, setShow] = useState(false);
 
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setTitle(props.title)
+    setSubtitle(props.subtitle)
+    setDescription(props.description)
+    setStartedAt(props.date)
+    setIsActive(props.isActive)
+    setShow(true)
+  };
   const handleClose = () => setShow(false);
+
+  const errorToast = () => {
+    toast.error('Um erro ocorreu! 😦', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
   const handleSubmit = async () => {
     let body = {
@@ -38,16 +57,7 @@ export default function CourseInfo(props) {
       await api.put(`/courses/${props.id}`, body);
       window.location.href = "/"; 
     } catch (error) {
-      console.log(error)
-      toast.error('Um erro ocorreu! 😦', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      errorToast();
     }
   }
 
@@ -56,16 +66,7 @@ export default function CourseInfo(props) {
       await api.delete(`/courses/${props.id}`);
       window.location.href = "/"; 
     } catch (error) {
-      console.log(error)
-      toast.error('Um erro ocorreu! 😦', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      errorToast();
     }
   }
 
@@ -81,9 +82,9 @@ export default function CourseInfo(props) {
           <div className="d-flex justify-content-between">
             <div>
               <Badge variant={props.isActive ? 'success' : 'danger'}>
-                {props.isActive ? 'Active' : 'No Active'}
+                {props.isActive ? 'Ativo' : 'Desativado'}
               </Badge>
-              <span> Started at: {props.startedAt} </span>
+              <span> Começou em: {props.startedAt} </span>
             </div>
             <div>
               <Button variant='warning' onClick={handleShow}> Editar </Button>
