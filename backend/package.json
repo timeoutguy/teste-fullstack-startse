@@ -9,6 +9,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "forever": "^3.0.0",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.0",
     "yup": "^0.29.1"
@@ -26,8 +27,6 @@
   },
   "scripts": {
     "dev": "nodemon src/index.js",
-    "pretest": "NODE_ENV=test sequelize db:create sequelize db:migrate",
-    "test": "jest",
-    "posttest": "sequelize db:migrate:undo:all"
+    "prod": "forever build/index.js"
   }
 }
