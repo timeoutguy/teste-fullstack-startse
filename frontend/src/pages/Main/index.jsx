@@ -12,21 +12,25 @@ export default function Main() {
 
   const [courses, setCourse] = useState([]);
 
+  const errorToast = () => {
+    toast.error('Um erro ocorreu! 😦', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   let getCourse = async (filter = '')  => {
     const search = filter ?`/find?q=${filter}` : ''
 
     try {
       await api.get(`/courses${search}`).then(res => setCourse(res.data)); 
     } catch (err) {
-      toast.error('Um erro ocorreu! 😦', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      errorToast();
     }
   }
 
@@ -38,11 +42,9 @@ export default function Main() {
     getCourse();
   }, [])
 
-  console.log(courses)
-
   return (
     <>
-    <Container className="mt-4">
+    <Container className="mt-4 mb-4">
       <h1> Cursos </h1>
       <Search handleSearch={handleSearch}/>
       <div className="mt-4">
