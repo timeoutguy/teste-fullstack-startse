@@ -20,6 +20,8 @@ Repositorio com o teste para a vaga de desenvolvedor full-stack na empresa [Star
 
 8 - Voilà, a API já está funcionando
 
+Obs: Caso tenha que editar algo, repita o passo 7 apos as edições
+
 # Como utilizar o frontend
 
 1 - Instale as dependencias com `yarn` `npm install` 
