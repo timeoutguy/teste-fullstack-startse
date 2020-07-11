@@ -14,7 +14,7 @@ Repositorio com o teste para a vaga de desenvolvedor full-stack na empresa [Star
 
 5 - Para executar as migrations execute `yarn sequelize db:migrate`/`npx sequelize-cli db:migrate` 
 
-6 - Para executar as seeders execute `yarn sequelize db:seed:all`/`yarn sequelize db:seed:all`
+6 - Para executar as seeders execute `yarn sequelize db:seed:all`/`npx sequelize-cli db:seed:all`
 
 7 - Execute o script `prod` com `yarn prod` `npm run prod`
 
